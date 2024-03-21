@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator LoadLevel(int levelToLoad)
     {
+        Time.timeScale = 1f;
         animator.SetTrigger("FadeOut");
         yield return new WaitForSeconds(transitionTime);
         SceneManager.LoadScene(levelToLoad);
