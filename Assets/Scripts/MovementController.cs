@@ -120,14 +120,14 @@ public class MovementController : MonoBehaviour
         }
         if (isHandheld)
         {
-            TouchScreenRotation();
+       /*     TouchScreenRotation();
         }
         if (isPC)
-        {
-            MouseRotation();
+        {*/
+    /*        MouseRotation();
         }
         if (isConsole)
-        {
+        {*/
             RightStickRotation();
         }
         if (!isGrounded)
@@ -194,8 +194,8 @@ public class MovementController : MonoBehaviour
             capCollider.center = new Vector3(capCollider.center.x, capsuleHeight / 2f, capCollider.center.z);
         }
 
-
-        RayCasting();
+        
+       RayCasting();
     }
     void RayCasting()
     {
@@ -265,7 +265,7 @@ public class MovementController : MonoBehaviour
         Debug.DrawRay(transform.position + hangOffset, transform.TransformDirection(horizontalDirection * horizontalRange));
         Debug.DrawRay(transform.position + verticalOffset + (transform.forward * 0.6f),
             transform.TransformDirection(-verticalDirection * verticalRange));
-    }
+    } 
     private void LateUpdate()
     {
         offset = Quaternion.AngleAxis(dir * cameraTurnSpeed, Vector3.up) * offset;
@@ -423,7 +423,7 @@ public class MovementController : MonoBehaviour
             anim.SetBool("idle", false);
             anim.SetBool("walk", false);
             anim.SetBool("run", false);
-            if (!running || !canSlide)
+            if (!running && !canSlide)
             {
                 anim.SetTrigger("crouch");
                 animating = true;
@@ -530,7 +530,7 @@ public class MovementController : MonoBehaviour
             offsetY = new Vector3(0, 0, 0);
         }
     }
-    void TouchScreenRotation()
+ /*   void TouchScreenRotation()
     {
         if (TouchScreenInitialPos.x >= Screen.width / 2 && canSwipe) {
             if (TouchScreenCurrentPos.x >= Screen.width / 2)
@@ -604,7 +604,7 @@ public class MovementController : MonoBehaviour
             offsetY = new Vector3(0, 0, 0);
         }
         mouseTempPos = mousePos;
-    }
+    }*/
     public void Jumped()
     {
         jumped = true;
