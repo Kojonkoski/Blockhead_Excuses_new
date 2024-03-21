@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveCar : MonoBehaviour
+public class CarBack : MonoBehaviour
 {
     public float speed;
     public float movetime;
@@ -15,19 +15,19 @@ public class MoveCar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(isMoving)
+        if (isMoving)
         {
             transform.Translate(Vector3.forward * speed * Time.deltaTime);
 
             goneTime += Time.deltaTime;
 
-            if(goneTime >= movetime)
+            if (goneTime >= movetime)
             {
                 isMoving = false;
 
