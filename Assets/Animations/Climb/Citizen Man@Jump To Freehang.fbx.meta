@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f421410bedf402f4bbd02a5c94ae666b
+guid: 56644f873df311c439493993addf7610
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -19,13 +19,7 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: "\nClip 'mixamo.com' has import animation warnings that
-      might lower retargeting quality:\nNote: Activate translation DOF on avatar
-      to improve retargeting quality.\n\t'Neck' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n\t'Shoulder L' is inbetween
-      humanoid transforms and has rotation animation that will be discarded.\n\t'Shoulder
-      R' is inbetween humanoid transforms and has rotation animation that will be
-      discarded.\n"
+    animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f421410bedf402f4bbd02a5c94ae666b
+guid: f9490e23a05e6034b89a982796c93ada
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -16,16 +16,11 @@ ModelImporter:
     optimizeGameObjects: 0
     removeConstantScaleCurves: 0
     motionNodeName: 
-    rigImportErrors: 
+    rigImportErrors: "Invalid copied Avatar Rig Configuration:\n\tNo human bone found.
+      Ensure both rig type match\n"
     rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: "\nClip 'mixamo.com' has import animation warnings that
-      might lower retargeting quality:\nNote: Activate translation DOF on avatar
-      to improve retargeting quality.\n\t'Neck' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n\t'Shoulder L' is inbetween
-      humanoid transforms and has rotation animation that will be discarded.\n\t'Shoulder
-      R' is inbetween humanoid transforms and has rotation animation that will be
-      discarded.\n"
+    animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0

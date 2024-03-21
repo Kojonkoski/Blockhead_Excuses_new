@@ -19,7 +19,13 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: 
+    animationImportWarnings: "\nClip 'mixamo.com' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'Neck' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n\t'Shoulder L' is inbetween
+      humanoid transforms and has rotation animation that will be discarded.\n\t'Shoulder
+      R' is inbetween humanoid transforms and has rotation animation that will be
+      discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
@@ -211,13 +217,13 @@ ModelImporter:
         length: 0
         modified: 0
     skeleton:
-    - name: Citizen Man@Happy Idle(Clone)
+    - name: PlayerCharacter(Clone)
       parentName: 
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Citizen Man Rig
-      parentName: Citizen Man@Happy Idle(Clone)
+      parentName: PlayerCharacter(Clone)
       position: {x: 0.0077542798, y: -0.0039904118, z: -0.0044555236}
       rotation: {x: -0.008587835, y: -0.041401923, z: 0.00933495, w: 0.99906206}
       scale: {x: 1, y: 1, z: 1}
@@ -342,12 +348,12 @@ ModelImporter:
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Citizen Man Hair
-      parentName: Citizen Man@Happy Idle(Clone)
+      parentName: PlayerCharacter(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0.70710933, y: 0, z: -0, w: 0.70710427}
       scale: {x: 1, y: 1, z: 1}
     - name: Citizen Man
-      parentName: Citizen Man@Happy Idle(Clone)
+      parentName: PlayerCharacter(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0.70710933, y: 0, z: -0, w: 0.70710427}
       scale: {x: 1, y: 1, z: 1}
@@ -361,8 +367,8 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 1
-    skeletonHasParents: 1
+    hasExtraRoot: 0
+    skeletonHasParents: 0
   lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 1cb0e220edaad0b4296094cc5dd9a50f, type: 3}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 3
