@@ -22,6 +22,10 @@ public class EnemyTrigger : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        Animator1.SetTrigger("PlayerHit");
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Animator1.SetTrigger("PlayerHit");
+        }
+        
     }
 }
