@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        StartCoroutine(LoadLevel(3));
+        StartCoroutine(LoadLevel(1));
     }
 
     public void Mainmenu()
