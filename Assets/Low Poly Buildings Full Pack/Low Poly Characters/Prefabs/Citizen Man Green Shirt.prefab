@@ -360,6 +360,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4000010536580966}
   - component: {fileID: 95000013265242786}
+  - component: {fileID: 2174923409054369966}
   m_Layer: 0
   m_Name: Citizen Man Green Shirt
   m_TagString: Untagged
@@ -406,6 +407,29 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!136 &2174923409054369966
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000012182839224}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.09673975
+  m_Height: 0.7432853
+  m_Direction: 1
+  m_Center: {x: 0.0064673424, y: 0.3673417, z: -0.0067929104}
 --- !u!1 &1000012268152834
 GameObject:
   m_ObjectHideFlags: 0
