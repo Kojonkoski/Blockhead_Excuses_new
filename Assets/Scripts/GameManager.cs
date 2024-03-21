@@ -35,10 +35,18 @@ public class GameManager : MonoBehaviour
         Application.Quit();
     }
 
+    public void EndGame()
+    {
+        StartCoroutine(LoadLevel(2));
+
+    }
+
     public IEnumerator LoadLevel(int levelToLoad)
     {
         animator.SetTrigger("FadeOut");
         yield return new WaitForSeconds(transitionTime);
         SceneManager.LoadScene(levelToLoad);
     }
+
+    
 }
