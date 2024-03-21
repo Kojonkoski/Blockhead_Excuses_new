@@ -54,6 +54,13 @@ public class MovementController : MonoBehaviour
 
     Rigidbody rb;
 
+    [Header("Crouch parameters")]
+    bool crouch, isMoving, canChange, running, sliding;
+    public bool canSlide;
+    public float slideForce;
+    public float crouchSpeed= 4.0f;
+    float capsuleHeight;
+
     
 
 
@@ -67,6 +74,10 @@ public class MovementController : MonoBehaviour
         lookAtInitialPositioning = lookAt.localPosition;
         offset = distance;
         capCollider = GetComponent<CapsuleCollider>();
+        
+        capsuleHeight = capCollider.height;
+        
+        canChange = true;
 
     }
 
@@ -146,6 +157,43 @@ public class MovementController : MonoBehaviour
             anim.SetBool("idle", false);
 
         }
+
+        if(isGrounded && moveVector != Vector3.zero)
+        {
+            isMoving = true;
+        }
+        if (isGrounded && moveVector == Vector3.zero)
+        {
+            isMoving = false;
+        }
+        if (isMoving && crouch)
+        {
+            anim.SetTrigger("crouchWalk");
+        }
+        if (!isMoving && crouch)
+        {
+            anim.SetTrigger("walkToCrouch");
+        }
+        if (isMoving && !crouch && !canChange && !sliding)
+        {
+            anim.SetTrigger("walkToCrouch");
+            anim.SetBool("idle", true);
+        }
+        if (sliding && !crouch)
+        {
+            canChange = true;
+            sliding = false;
+            animating = false;
+            rb.velocity = Vector3.zero;
+            capCollider.height = capsuleHeight;
+            capCollider.center = new Vector3(capCollider.center.x, capsuleHeight / 2f, capCollider.center.z);
+        }
+        if (!sliding && !crouch)
+        {
+            capCollider.height = capsuleHeight;
+            capCollider.center = new Vector3(capCollider.center.x, capsuleHeight / 2f, capCollider.center.z);
+        }
+
 
         RayCasting();
     }
@@ -255,32 +303,52 @@ public class MovementController : MonoBehaviour
         {
             if (isRunning)
             {
-                if (!jump)
+                if (!jump && !crouch && canChange)
                 {
                     anim.SetBool("run", true);
                     anim.SetBool("walk", false);
                     anim.SetBool("idle", false);
+                    running = true;
                 }
-                moveSpeed = runSpeed;
+
+                if (!crouch)
+                {
+                    moveSpeed = runSpeed;
+                }
+                if(crouch)
+                {
+                    moveSpeed = crouchSpeed;
+                }
+
                             }
             if (!isRunning)
             {
-                if (!jump)
+                if (!jump && !crouch && canChange)
                 {
                     anim.SetBool("walk", true);
                     anim.SetBool("run", false);
                     anim.SetBool("idle", false);
+                    running = false;
                 }
-                moveSpeed = walkSpeed;
+                if (!crouch)
+                {
+                    moveSpeed = walkSpeed;
+                }
+                if (crouch)
+                {
+                    moveSpeed = crouchSpeed;
+                }
+
             }
         }
 
 
-        if (moveVector == Vector3.zero && !jump)
+        if (moveVector == Vector3.zero && !jump && !crouch && canChange)
         {
             anim.SetBool("idle", true);
             anim.SetBool("walk", false);
             anim.SetBool("run", false);
+            running = false;
         }
 
         if (moveVector != Vector3.zero)
@@ -328,13 +396,55 @@ public class MovementController : MonoBehaviour
     {
         if(_context.performed)
         {
-            jump = true;
+            if (crouch)
+            {
+                jump = false;
+            }
+            if (!crouch)
+            {
+                jump = true;
+            }
             Jump();
+        }
+    }
+    public void CrouchButton(InputAction.CallbackContext _context)
+    {
+        if (!_context.performed)
+        {
+            crouch = !crouch;
+            canChange = false;
+            Crouching();
+        }
+    }
+    void Crouching()
+    {
+        if (isGrounded && crouch)
+        {
+            anim.SetBool("idle", false);
+            anim.SetBool("walk", false);
+            anim.SetBool("run", false);
+            if (!running || !canSlide)
+            {
+                anim.SetTrigger("crouch");
+                animating = true;
+            }
+            if (running && canSlide)
+            {
+                anim.SetTrigger("slide");
+                sliding = true;
+                animating = true;
+                rb.AddForce(slideForce * transform.forward, ForceMode.Impulse);
+            }
+        }
+        if (isGrounded && !crouch)
+        {
+            anim.SetBool("idle", true);
         }
     }
     void Jump()
     {
-        if(isGrounded && jump)
+        canChange = true;
+        if(isGrounded && jump && !crouch)
         {
             
             anim.SetBool("idle", false); 
@@ -383,6 +493,12 @@ public class MovementController : MonoBehaviour
             }
 
             
+        }
+        if (!jump && crouch && !animating)
+        {
+            anim.SetBool("idle", true);
+            crouch = false;
+            animating = false;
         }
     }
     void RightStickRotation()
@@ -544,6 +660,46 @@ public class MovementController : MonoBehaviour
         anim.SetBool("idle", true);
         rb.isKinematic = false;
         capCollider.enabled = true;
+    }
+
+    public void CanChange()
+    {
+        canChange = true;
+    }
+    public void AnimatingTrue()
+    {
+        animating = true;
+    }
+    public void AnimatingFalse()
+    {
+        animating = false;  
+    }
+    public void EndOfSlideAnimation()
+    {
+        capCollider.height = capsuleHeight;
+        capCollider.center = new Vector3(capCollider.center.x, capsuleHeight / 2f, capCollider.center.z);
+        animating = false;
+        canChange = true;
+        sliding = false;
+        crouch = false;
+        rb.velocity = Vector3.zero;
+        anim.SetBool("idle", true);
+    }
+    public void EndOfIdleToCrouch()
+    {
+        capCollider.height = capsuleHeight / 1.3f;
+        capCollider.center = new Vector3(capCollider.center.x, capsuleHeight / 2.6f, capCollider.center.z);
+    }
+    public void EndOfCrouchToIdle()
+    {
+        capCollider.height = capsuleHeight;
+        capCollider.center = new Vector3(capCollider.center.x, capsuleHeight / 2f, capCollider.center.z);
+    }
+
+    public void StartSlideAnimation()
+    {
+        capCollider.height = capsuleHeight / 2.5f;
+        capCollider.center = new Vector3(capCollider.center.x, capsuleHeight / 5f, capCollider.center.z);
     }
 
 }
