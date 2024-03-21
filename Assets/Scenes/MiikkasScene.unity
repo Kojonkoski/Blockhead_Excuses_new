@@ -246,6 +246,67 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!1001 &1925642354
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1614052036255485926, guid: fe775c0ace7bf944d8959570e7917497, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 45.23484
+      objectReference: {fileID: 0}
+    - target: {fileID: 1614052036255485926, guid: fe775c0ace7bf944d8959570e7917497, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.291
+      objectReference: {fileID: 0}
+    - target: {fileID: 1614052036255485926, guid: fe775c0ace7bf944d8959570e7917497, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.7881148
+      objectReference: {fileID: 0}
+    - target: {fileID: 1614052036255485926, guid: fe775c0ace7bf944d8959570e7917497, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1614052036255485926, guid: fe775c0ace7bf944d8959570e7917497, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1614052036255485926, guid: fe775c0ace7bf944d8959570e7917497, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1614052036255485926, guid: fe775c0ace7bf944d8959570e7917497, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1614052036255485926, guid: fe775c0ace7bf944d8959570e7917497, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1614052036255485926, guid: fe775c0ace7bf944d8959570e7917497, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1614052036255485926, guid: fe775c0ace7bf944d8959570e7917497, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4121704320589154993, guid: fe775c0ace7bf944d8959570e7917497, type: 3}
+      propertyPath: m_Name
+      value: PlayerCharacter
+      objectReference: {fileID: 0}
+    - target: {fileID: 4121704320589154993, guid: fe775c0ace7bf944d8959570e7917497, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fe775c0ace7bf944d8959570e7917497, type: 3}
 --- !u!1 &2124431443
 GameObject:
   m_ObjectHideFlags: 0
@@ -388,6 +449,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5730877852106775115, guid: 3bb79655f4f45b4458cdf3f1f77b69b8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7814386945855859126, guid: 3bb79655f4f45b4458cdf3f1f77b69b8, type: 3}
       propertyPath: Animator1
       value: 
@@ -396,7 +461,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiikkaVillage
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5730877852106775115, guid: 3bb79655f4f45b4458cdf3f1f77b69b8, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -409,3 +475,4 @@ SceneRoots:
   - {fileID: 2124431445}
   - {fileID: 659185976}
   - {fileID: 3733530604000676134}
+  - {fileID: 1925642354}
